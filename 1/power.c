@@ -2,9 +2,9 @@
 
 int power(int base, int p)
 {
-  int i, times = 0;
+  int i;
 
-  for (i = 1; times < p; ++times)
+  for (i = 1; p > 0; --p)
     i = i * base;
 
   return i;
