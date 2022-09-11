@@ -1,1 +1,2 @@
 - program that when run, deletes all output files.
+- select (with keyboard keys) one source code file to compile through all the folders
