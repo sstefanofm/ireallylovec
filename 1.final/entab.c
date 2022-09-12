@@ -38,7 +38,7 @@ void printnb(char line[])
 }
 
 /* creates the 'compressed' line, with the less amount of tabs and spaces */
-void trline(char line[], char trline[], int tabsize)
+void trline(char line[], char newline[], int tabsize)
 {
     int j, pos;
 
@@ -48,19 +48,19 @@ void trline(char line[], char trline[], int tabsize)
         ++pos;
         if (line[i] == '\t' || pos >= tabsize)
         {
-            trline[j] = '\t';
+            newline[j] = '\t';
             ++j;
             pos = 0;
         }
     }
     for (int i = 0; i < pos; ++i)
     {
-        trline[j] = ' ';
+        newline[j] = ' ';
         ++j;
     }
-    trline[j] = '\n';
+    newline[j] = '\n';
     ++j;
-    trline[j] = '\0';
+    newline[j] = '\0';
 }
 
 int main(void)
