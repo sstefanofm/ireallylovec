@@ -1,35 +1,50 @@
 /* program that removes all comments contained in a C source code file */
 
 #include <stdio.h>
-#include <stdbool.h>
 
-/* checks if they're valid C files */
-bool ccheck(int filesc, char *files[])
+int
+strlen(char s[])
 {
-    FILE *fp;
-
-    for (int i = 1; i < filesc && (fp = fopen(files[i], "r")) != NULL; ++i)
-    {
-        // check if it's a C source code program
-        return false;
-
-        // close...
-        fclose(fp);
-    }
-    return true;
+    int i;
+    for (i = 0; s[i] != '\0'; ++i)
+       ; 
+    return i;
 }
 
-int main(int argc, char *argv[])
+/* checks if they're valid C files */
+int
+ccheck(int filesc, char *files[])
 {
-    if (argc < 2)
-    {
+    for (int i = 1; i < filesc; ++i)
+        if (files[i][strlen(files[i]) - 1] != 'c' || files[i][strlen(files[i]) - 2] != '.')
+            return i;
+    return 0;
+}
+
+int
+checkerrors(int argc, char *argv[])
+{
+    int errindex;
+
+    if (argc < 2) {
         printf("ERROR: Usage: %s <file1.c> [<file2.c> ...]\n", argv[0]);
         return 1;
     }
+    if (errindex = ccheck(argc, argv))
+    {
+        printf("ERROR: Only C source code files are allowed. '%s' is not a valid file\n", argv[errindex]);
+        return 2;
+    }
+    return 0;
+}
 
-    ccheck(argc, argv);
+int
+main(int argc, char *argv[])
+{
+    int exitcode;
+
+    if (exitcode = checkerrors(argc, argv))
+        return exitcode;
 
     // start process...
-
-    return 0;
 }
