@@ -1,0 +1,7 @@
+Exercises taken from a Univeristy Subject -> Automatas y Lenguajes.
+
+Para cada uno de los ejercicios que siguen, construir en ANSI C la función solicitada y un programa que la pruebe con todos los datos constantes que sean necesarios.
+(15) Longitud de una cadena
+(16) Determinar si una cadena dada es vacía.
+(17) Concatenación de dos cadenas.
+(18) Determinar si una subcadena es Prefijo de una cadena dada.
