@@ -11,3 +11,11 @@ power(int base, int p)
   return i;
 }
 
+int
+rpower(int base, int p)
+{
+  if (p)
+    return base * rpower(base, p - 1);
+  return 1;
+}
+
